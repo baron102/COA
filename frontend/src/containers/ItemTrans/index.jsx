@@ -219,7 +219,7 @@ class ItemTransTables extends Component {
                       },
                       {
                         Header: "Revenue",
-                        accessor: "revenue_fld",
+                        accessor: "revenue",
                       },
                       {
                         Header: "Cost",

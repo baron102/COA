@@ -1062,7 +1062,7 @@ class ItemTransViewSet(viewsets.ViewSet):
                 'errors': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
         data = serializer.validated_data
         item_trans = ItemTrans.objects.create(
-            trans_id=data['trans_id'], item_id=data['item_id'], tran_date=data['tran_date'], trans_user=data['trans_user'], trans_type=data['trans_type'], entity=data['entity'],reference=data['reference'], quantity=data['quantity'], warehouse=data['warehouse'], location=data['location'], bin=data['bin'], cost=data['cost'], notes=data['notes']
+            trans_id=data['trans_id'], item_id=data['item_id'], tran_date=data['tran_date'], trans_user=data['trans_user'], trans_type=data['trans_type'], entity=data['entity'],reference=data['reference'], quantity=data['quantity'], warehouse=data['warehouse'], location=data['location'], bin=data['bin'], revenue=data['revenue'], cost=data['cost'], notes=data['notes']
         )
 
         return Response(data=ItemTransSerializer(item_trans).data, status=status.HTTP_201_CREATED)
@@ -1082,7 +1082,7 @@ class ItemTransViewSet(viewsets.ViewSet):
         sel_ItemTrans.warehouse = request.data['warehouse']        
         sel_ItemTrans.location = request.data['location']
         sel_ItemTrans.bin = request.data['bin']
-        sel_ItemTrans.revenue_fld = request.data['revenue_fld']
+        sel_ItemTrans.revenue = request.data['revenue']
         sel_ItemTrans.cost = request.data['cost']
         sel_ItemTrans.notes = request.data['notes']
 
@@ -1095,3 +1095,46 @@ class ItemTransViewSet(viewsets.ViewSet):
         item_tran = ItemTrans.objects.get(pk=pk)
         item_tran.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)    
+
+
+class AppDataSetsViewSet(viewsets.ViewSet):
+    @staticmethod
+    def list(request):
+        app_data_sets = AppDataSets.objects.order_by('-updated_at')
+        serializer = AppDataSetsSerializer(app_data_sets, many=True)
+        # print(serializer.data)
+        return Response(data=serializer.data, status=status.HTTP_200_OK)
+
+    @staticmethod
+    def create(request):
+        serializer = CreateAppDataSetsSerializer(data=request.data)
+        print(request.data)
+        if not serializer.is_valid():
+            return Response({
+                'message': 'Some fields are missing',
+                'errors': serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
+        data = serializer.validated_data
+        app_data_sets = AppDataSets.objects.create(
+            table_name=data['table_name'], related=data['related'], record_count=data['record_count'], info=data['info']
+        )
+
+        return Response(data=AppDataSetsSerializer(app_data_sets).data, status=status.HTTP_201_CREATED)
+
+    @staticmethod
+    def update(request, pk=None):
+        sel_AppDataSets = AppDataSets.objects.get(pk=pk)
+
+        sel_AppDataSets.table_name = request.data['table_name']
+        sel_AppDataSets.related = request.data['related']
+        sel_AppDataSets.record_count = request.data['record_count']        
+        sel_AppDataSets.info = request.data['info']
+
+        sel_AppDataSets.save()
+
+        return Response(data=AppDataSetsSerializer(sel_AppDataSets).data, status=status.HTTP_200_OK)
+
+    @staticmethod
+    def destroy(request, pk=None):
+        app_data_set = AppDataSets.objects.get(pk=pk)
+        app_data_set.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)            

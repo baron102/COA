@@ -268,7 +268,7 @@ class ItemTrans(models.Model):
     warehouse = models.CharField(max_length=100, null=True)
     location = models.CharField(max_length=100, null=True)
     bin = models.CharField(max_length=100, null=True)
-    revenue_fld = models.CharField(max_length=100, null=True)
+    revenue = models.CharField(max_length=100, null=True)
     cost = models.CharField(max_length=100, null=True)
     notes = models.CharField(max_length=100, null=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)

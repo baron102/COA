@@ -173,41 +173,21 @@ class AppDataSetsTables extends Component {
                     data={app_data_sets}
                     columns={[
                       {
-                        Header: "MenuID",
-                        accessor: "app_data_set_id",
+                        Header: "TableName",
+                        accessor: "table_name",
                         sortable: true,
                       },
                       {
-                        Header: "Description",
-                        accessor: "app_data_set_description",
+                        Header: "Related",
+                        accessor: "related",
                       },
                       {
-                        Header: "Status",
-                        accessor: "app_data_set_status",
+                        Header: "Record Count",
+                        accessor: "record_count",
                       },
                       {
                         Header: "Info",
-                        accessor: "app_data_set_info",
-                      },
-                      {
-                        Header: "ContainerPOD",
-                        accessor: "app_data_set_container_POD",
-                      },
-                      {
-                        Header: "HelpText",
-                        accessor: "app_data_set_help_text",
-                      },
-                      {
-                        Header: "LastUsed",
-                        accessor: "app_data_set_last_used",
-                      },
-                      {
-                        Header: "UsageCount",
-                        accessor: "app_data_set_usage_count",
-                      },
-                      {
-                        Header: "RolesUsed",
-                        accessor: "app_data_set_roles_used",
+                        accessor: "info",
                       },
                       {
                         Header: "Actions",

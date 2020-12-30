@@ -23,7 +23,7 @@ router.register('items', views.ItemsViewSet, basename='items')
 router.register('item_references', views.ItemReferencesViewSet, basename='item_references')
 router.register('item_counts', views.ItemCountsViewSet, basename='item_counts')
 router.register('item_trans', views.ItemTransViewSet, basename='item_trans')
-# router.register('app_data_sets', views.AppDataSetsViewSet, basename='app_data_sets')
+router.register('app_data_sets', views.AppDataSetsViewSet, basename='app_data_sets')
 
 urlpatterns = [
     path('auth/register', views.UserSingUpView.as_view(), name='register'),

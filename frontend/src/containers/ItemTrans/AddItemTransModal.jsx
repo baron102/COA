@@ -22,7 +22,7 @@ class AddItemTransModal extends Component{
       warehouse: '',
       location: '',
       bin: '',
-      revenue_fld: '',
+      revenue: '',
       cost: '',
       notes: '',
       errors: {
@@ -37,7 +37,7 @@ class AddItemTransModal extends Component{
         warehouse: '',
         location: '',
         bin: '',
-        revenue_fld: '',
+        revenue: '',
         cost: '',
         notes: '',
       }
@@ -121,8 +121,8 @@ class AddItemTransModal extends Component{
       return;
     }
 
-    if (this.state.revenue_fld === '') {
-      errors.revenue_fld = 'Revenue is required.';
+    if (this.state.revenue === '') {
+      errors.revenue = 'Revenue is required.';
       this.setState({errors});
       return;
     }
@@ -151,7 +151,7 @@ class AddItemTransModal extends Component{
       warehouse: this.state.warehouse,
       location: this.state.location,
       bin: this.state.bin,
-      revenue_fld: this.state.revenue_fld,
+      revenue: this.state.revenue,
       cost: this.state.cost,
       notes: this.state.notes,
     }).then(res => {
@@ -181,7 +181,7 @@ class AddItemTransModal extends Component{
       warehouse,
       location,
       bin,
-      revenue_fld,
+      revenue,
       cost,
       notes
     } = this.state;
@@ -291,9 +291,9 @@ class AddItemTransModal extends Component{
             <FormGroup>
               <ControlLabel className="col-md-3">Revenue<span className="star">*</span></ControlLabel>
               <Col md={9}>
-                <FormControl placeholder="Revenue" type="text" name="revenue_fld" value={revenue_fld}
+                <FormControl placeholder="Revenue" type="text" name="revenue" value={revenue}
                      onChange={this.handleChangeInput}/>
-                <FormFeedback className="text-danger">{errors.revenue_fld}</FormFeedback>
+                <FormFeedback className="text-danger">{errors.revenue}</FormFeedback>
               </Col>
             </FormGroup>
             <FormGroup>

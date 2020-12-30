@@ -20,7 +20,7 @@ import ItemsTables from "./containers/Items";
 import ItemReferencesTables from "./containers/ItemReferences";
 import ItemCountsTables from "./containers/ItemCounts";
 import ItemTransTables from "./containers/ItemTrans";
-// import AppDataSetsTables from "./containers/AppDataSets";
+import AppDataSetsTables from "./containers/AppDataSets";
 
 const routes = [
   {
@@ -197,13 +197,13 @@ const routes = [
     icon: "pe-7s-users",
     component: ItemTransTables
   },  
-  // {
-  //   path: "/menu_items",
-  //   access: "common",
-  //   name: "AppDataSets",
-  //   show: "true",
-  //   icon: "pe-7s-users",
-  //   component: AppDataSetsTables
-  // },  
+  {
+    path: "/app_data_sets",
+    access: "common",
+    name: "AppDataSets",
+    show: "true",
+    icon: "pe-7s-users",
+    component: AppDataSetsTables
+  },  
 ];
 export default routes;

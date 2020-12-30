@@ -318,7 +318,7 @@ class ItemTransSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ItemTrans
-        fields = ('id', 'trans_id', 'item_id','tran_date','trans_user','trans_type','entity','reference','quantity','warehouse','location','bin','revenue_fld','cost','notes')
+        fields = ('id', 'trans_id', 'item_id','tran_date','trans_user','trans_type','entity','reference','quantity','warehouse','location','bin','revenue','cost','notes')
 
 
 class CreateItemTransSerializer(serializers.Serializer):
@@ -333,6 +333,7 @@ class CreateItemTransSerializer(serializers.Serializer):
     warehouse = serializers.CharField()
     location = serializers.CharField() 
     bin = serializers.CharField()
+    revenue = serializers.CharField()
     cost = serializers.CharField()
     notes = serializers.CharField()
 
