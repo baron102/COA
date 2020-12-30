@@ -1,0 +1,5 @@
+{
+    "svn.ignoreMissingSvnWarning": true,
+    "C_Cpp.default.configurationProvider": "go2sh.cmake-integration",
+    "python.pythonPath": "C:\\Users\\KSI\\AppData\\Local\\Programs\\Python\\Python36-32\\python.exe"
+}

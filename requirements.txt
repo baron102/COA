@@ -1,0 +1,10 @@
+Django==2.2.12
+django-extensions==2.2.8
+djangorestframework==3.10.3
+djangorestframework-simplejwt==4.4.0
+gunicorn==20.0.4
+PyJWT==1.7.1
+python-dotenv==0.12.0
+pytz==2020.4
+six==1.15.0
+sqlparse==0.4.1
