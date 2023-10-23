@@ -2,10 +2,9 @@
 Django model project
 ## Installation
 
-- Clone this repository and install dependencies
+- Install dependencies
 
-    ```commandline
-    git clone https://github.com/iotfan90/django_models.git
+    ```commandline    
     pip install -r requirements.txt
     cd django_models/frontend
     npm install      
